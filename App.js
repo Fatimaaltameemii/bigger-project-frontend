@@ -1,12 +1,23 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import Home from "./src/components/screens/Home";
+import { StyleSheet, ButtonStyled, View } from "react-native";
+import StartUP from "./src/components/screens/StartUp";
+import SignIn from "./src/components/screens/SignIn";
+import SignUp from "./src/components/screens/SignUp";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
+const { Navigator, Screen } = createStackNavigator();
 export default function App() {
   return (
     <View style={styles.container}>
-      <Home />
+      <NavigationContainer>
+        <Navigator initialRouteName="StartUP">
+          <Screen name="StartUP" component={StartUP} />
+          <Screen name="SignIn" component={SignIn} />
+          <Screen name="SignUp" component={SignUp} />
+        </Navigator>
+      </NavigationContainer>
       <StatusBar style="auto" />
     </View>
   );
