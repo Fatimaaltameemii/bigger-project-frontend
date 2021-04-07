@@ -16,7 +16,7 @@ const SignIn = ({ navigation }) => {
       <Padd2></Padd2>
       <StyledTextInput placeholder="ex: 123456" />
       <StyledButton
-        onPress={() => navigation.navigate("StartUP")} // هني لازم يدور اليوزر والباس من الداتا بيز
+        onPress={() => navigation.navigate("My Channels")} // هني لازم يدور اليوزر والباس من الداتا بيز
         title="let's Pego!!"
         accessibilityLabel="hello im a button"
         bgColor="darkcyan"

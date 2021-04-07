@@ -33,6 +33,7 @@ const StyledText = styled.Text`
   padding: 20px;
   color: white;
   font-size: 30px;
+  text-shadow: 2px 2px black;
 `;
 const Padd2 = styled.Text`
   padding: 60px;
