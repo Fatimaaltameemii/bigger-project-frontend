@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, ButtonStyled, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import StartUP from "./src/components/screens/StartUp";
 import SignIn from "./src/components/screens/SignIn";
 import SignUp from "./src/components/screens/SignUp";
@@ -13,7 +13,7 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer>
         <Navigator initialRouteName="StartUP">
-          <Screen name="StartUP" component={StartUP} />
+          <Screen name="Pego Pego Chatting" component={StartUP} />
           <Screen name="SignIn" component={SignIn} />
           <Screen name="SignUp" component={SignUp} />
         </Navigator>
@@ -27,7 +27,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
   },
 });

@@ -1,22 +1,68 @@
 import React from "react";
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
-import homeimg from "../../../assets/homebackground.jpg";
+import { View, ImageBackground, Text, StyleSheet } from "react-native";
+import signinpic from "../../../assets/signinpic.jpg";
+import styled from "styled-components/native";
+import StyledButton from "../StyledButton";
 
-const SignIn = () => {
+const SignIn = ({ navigation }) => {
   return (
-    <View>
-      <ImageBackground source={homeimg} style={styles.image}>
-        <Text>Sign in page</Text>
-      </ImageBackground>
-    </View>
+    <ImageBackground source={signinpic} style={styles.image}>
+      <StyledTextH>Sign In Page:</StyledTextH>
+      <Padd></Padd>
+      <StyledText>Enter your User Name:</StyledText>
+      <Padd2></Padd2>
+      <StyledTextInput placeholder="ex: taiba" />
+      <StyledText>Enter your PassWord:</StyledText>
+      <Padd2></Padd2>
+      <StyledTextInput placeholder="ex: 123456" />
+      <StyledButton
+        onPress={() => navigation.navigate("StartUP")} // هني لازم يدور اليوزر والباس من الداتا بيز
+        title="let's Pego!!"
+        accessibilityLabel="hello im a button"
+        bgColor="darkcyan"
+      />
+    </ImageBackground>
   );
 };
 
 export default SignIn;
 
+const Padd = styled.Text`
+  padding: 20px;
+`;
+const Padd2 = styled.Text`
+  padding: 3px;
+`;
+const StyledTextH = styled.Text`
+  font-weight: bold;
+  align-self: center;
+  padding: 20px;
+  color: darkcyan;
+  font-size: 50px;
+  text-shadow: 2px 2px black;
+`;
+const StyledTextInput = styled.TextInput`
+  background-color: yellow;
+  align-self: center;
+  border-bottom-width: 3px;
+  border-bottom-color: darkcyan;
+  width: 90%;
+  height: 50px;
+  text-align: center;
+  margin-bottom: 10%;
+  background-color: transparent;
+`;
+const StyledText = styled.Text`
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+  align-self: center;
+  text-shadow: 2px 2px black;
+`;
 const styles = StyleSheet.create({
   image: {
-    flex: 2,
-    width: 400,
+    flex: 1,
+    width: 375,
+    alignSelf: "center",
   },
 });
