@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import { View, Text, ImageBackground, StyleSheet } from "react-native";
 import signupPic from "../../../assets/signuppic.jpg";
 import styled from "styled-components/native";
@@ -9,7 +9,7 @@ const SignUp = ({ navigation }) => {
     username: "",
     password: "",
   });
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     await authStore.signup(user);
     if (authStore.user) navigation.replace("SignIn");
   };
@@ -24,7 +24,7 @@ const SignUp = ({ navigation }) => {
       <Padd2></Padd2>
       <StyledTextInput placeholder="ex: 123456" />
       <StyledButton
-         onPress={handleSubmit} // هني لازم نضيف اليوزر والباس للداتا بيز
+        onPress={handleSubmit} // هني لازم نضيف اليوزر والباس للداتا بيز
         title="First Pego!!"
         accessibilityLabel="hello im a button"
         bgColor="darkcyan"

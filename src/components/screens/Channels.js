@@ -6,13 +6,38 @@ import {
   ImageBackground,
   StyleSheet,
 } from "react-native";
+import StyledButton from "../StyledButton";
 import channelpic from "../../../assets/channelpic.jpg";
+import { useState } from "react";
+import pegoStore from "../Stores/PegoStore";
 
 const Channels = ({ navigation }) => {
+  const [data, setData] = useState({
+    name: "",
+    admin: "",
+  });
+  const handleChange = (event) => {
+    setData((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    pegoStore.addChannel(data);
+    console.log(data);
+  };
   return (
     <ImageBackground source={channelpic} style={styles.image}>
-      <Text style={styles.owViewContainer}>channels</Text>
-      <View style={styles.separator}></View>
+      <Text>channels</Text>
+      <StyledButton
+        onPress={handleSubmit}
+        // هني لازم يدور اليوزر والباس من الداتا بيز
+        title="+"
+        accessibilityLabel="hello im a button"
+        bgColor="darkcyan"
+      />
     </ImageBackground>
   );
 };

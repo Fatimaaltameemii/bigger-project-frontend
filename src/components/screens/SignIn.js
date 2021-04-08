@@ -10,7 +10,7 @@ const SignIn = ({ navigation }) => {
     username: "",
     password: "",
   });
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     await authStore.signin(user);
     if (authStore.user) navigation.replace("My Channels");
   };

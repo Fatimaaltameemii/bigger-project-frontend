@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { View, Text } from "react-native";
+//import { View, Text } from "react-native";
 import pegoStore from "../PegoStore";
-import styled from "styled-components/native";
-import { CustomTable } from "../styles";
-import { TableContent } from "../styles";
-import { ThemeButton } from "../styles";
-const CreateChannels = () => {
+//import styled from "styled-components/native";
+//port { CustomTable } from "../styles";
+//import { TableContent } from "../styles";
+//import { ThemeButton } from "../styles";
+/*const CreateChannels = () => {
   const [data, setData] = useState({
     name: "",
     admin: "",
@@ -23,8 +23,8 @@ const CreateChannels = () => {
     console.log(data);
   };
 
-  return (
-    <View>
+  //return (
+    /*<View>
       {" "}
       <CustomTable>
         <form onSubmit={handleSubmit}>
@@ -38,9 +38,9 @@ const CreateChannels = () => {
       </CustomTable>
     </View>
   );
-};
+};*/
 
-const StyledText = styled.Text`
+/*const StyledText = styled.Text`
   font-weight: bold;
   color: white;
   font-size: 30px;
@@ -59,7 +59,7 @@ const StyledTextInput = styled.TextInput`
   background-color: transparent;
 `;
 
-export const CustomTable = styled.div`
+export const CustomTable = styled.View`
   display: flex;
   background-color: #ad2831;
   padding: 20px;
@@ -73,7 +73,7 @@ export const CustomTable = styled.div`
   border-style: solid;
 `;
 
-export const TableContent = styled.div`
+export const TableContent = styled.View`
   margin-left: 400px;
   margin-right: 120px;
   font-size: x-large;
@@ -87,5 +87,5 @@ export const ThemeButton = styled.button`
   border-radius: 100px;
   background-color: #f9dbbd;
   color: black;
-`;
-export default CreateChannels;
+`;*/
+//export default CreateChannels;
