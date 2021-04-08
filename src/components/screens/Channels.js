@@ -12,6 +12,8 @@ import { useState } from "react";
 import pegoStore from "../Stores/PegoStore";
 import { observer } from "mobx-react";
 import authStore from "../Stores/AuthStore";
+import styled from "styled-components/native";
+import ChannelList from "../create/ChannelList";
 
 const Channels = ({ navigation }) => {
   const [user, setUser] = useState({
@@ -32,19 +34,28 @@ const Channels = ({ navigation }) => {
   };
   return (
     <ImageBackground source={channelpic} style={styles.image}>
-      <Text>channels</Text>
+      <StyledTextH>My channels</StyledTextH>
       <StyledButton
         onPress={handleSubmit}
         // هني لازم يدور اليوزر والباس من الداتا بيز
-        title="+"
+        title="Create +"
         accessibilityLabel="hello im a button"
-        bgColor="darkcyan"
+        bgColor="yellow"
       />
+      <ChannelList />
     </ImageBackground>
   );
 };
 
 export default observer(Channels);
+const StyledTextH = styled.Text`
+  font-weight: bold;
+  align-self: center;
+  padding: 20px;
+  color: darkcyan;
+  font-size: 50px;
+  text-shadow: 3px 3px white;
+`;
 const styles = StyleSheet.create({
   image: {
     flex: 1,
