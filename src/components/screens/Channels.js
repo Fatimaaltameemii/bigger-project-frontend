@@ -13,7 +13,7 @@ import pegoStore from "../Stores/PegoStore";
 import { observer } from "mobx-react";
 import authStore from "../Stores/AuthStore";
 import styled from "styled-components/native";
-import ChannelList from "../create/ChannelList";
+// import ChannelList from "../create/ChannelList";
 
 const Channels = ({ navigation }) => {
   const [user, setUser] = useState({
@@ -34,7 +34,9 @@ const Channels = ({ navigation }) => {
   };
   return (
     <ImageBackground source={channelpic} style={styles.image}>
-      <StyledTextH>My channels</StyledTextH>
+      <StyledTextH onChange={handleChange} type="text" name="name">
+        My channels
+      </StyledTextH>
       <StyledButton
         onPress={handleSubmit}
         // هني لازم يدور اليوزر والباس من الداتا بيز
@@ -42,7 +44,7 @@ const Channels = ({ navigation }) => {
         accessibilityLabel="hello im a button"
         bgColor="yellow"
       />
-      <ChannelList />
+      {/* <ChannelList /> */}
     </ImageBackground>
   );
 };
