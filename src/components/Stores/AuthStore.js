@@ -3,7 +3,7 @@ import axios from "axios";
 import jwtDecode from "jwt-decode";
 
 let instance = axios.create({
-  baseURL: "http://192.168.8.124:8000/",
+  baseURL: "http://192.168.8.133:8000/",
 });
 
 class AuthStore {
@@ -31,6 +31,7 @@ class AuthStore {
 
   signup = async (userData) => {
     try {
+      console.log(userData);
       const response = await instance.post("/signup", userData);
 
       const token = response.data.token;

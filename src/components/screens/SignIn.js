@@ -4,6 +4,7 @@ import signinpic from "../../../assets/signinpic.jpg";
 import styled from "styled-components/native";
 import StyledButton from "../StyledButton";
 import authStore from "../Stores/AuthStore";
+import { observer } from "mobx-react";
 
 const SignIn = ({ navigation }) => {
   const [user, setUser] = useState({
@@ -42,7 +43,7 @@ const SignIn = ({ navigation }) => {
   );
 };
 
-export default SignIn;
+export default observer(SignIn);
 
 const Padd = styled.Text`
   padding: 20px;

@@ -14,7 +14,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <NavigationContainer>
-        <Navigator initialRouteName="My Channels">
+        <Navigator initialRouteName="StartUP">
           <Screen name="Pego Pego Chatting" component={StartUP} />
           <Screen name="SignIn" component={SignIn} />
           <Screen name="SignUp" component={SignUp} />

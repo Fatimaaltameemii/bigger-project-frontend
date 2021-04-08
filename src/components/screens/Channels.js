@@ -10,23 +10,25 @@ import StyledButton from "../StyledButton";
 import channelpic from "../../../assets/channelpic.jpg";
 import { useState } from "react";
 import pegoStore from "../Stores/PegoStore";
+import { observer } from "mobx-react";
+import authStore from "../Stores/AuthStore";
 
 const Channels = ({ navigation }) => {
-  const [data, setData] = useState({
+  const [user, setUser] = useState({
     name: "",
     admin: "",
   });
   const handleChange = (event) => {
-    setData((prevState) => ({
+    setUser((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    pegoStore.addChannel(data);
-    console.log(data);
+  const handleSubmit = () => {
+    pegoStore.addChannel(user);
+    if (authStore.user) navigation.replace("Chatting");
+    console.log(user);
   };
   return (
     <ImageBackground source={channelpic} style={styles.image}>
@@ -42,7 +44,7 @@ const Channels = ({ navigation }) => {
   );
 };
 
-export default Channels;
+export default observer(Channels);
 const styles = StyleSheet.create({
   image: {
     flex: 1,

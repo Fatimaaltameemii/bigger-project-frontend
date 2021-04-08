@@ -5,8 +5,8 @@ let instance = axios.create({
 });
 class PegoStore {
   Channel = [];
-  User = [];
-  Message = [];
+  // User = [];
+  // Message = [];
 
   fetchChannel = async () => {
     try {
@@ -17,60 +17,61 @@ class PegoStore {
     }
   };
 
-  fetchMessage = async () => {
-    try {
-      const response = await instance.get("http://localhost:8000/messages");
-      this.Message = response.data;
-    } catch (error) {
-      console.error("fetchMessage -> response", error);
-    }
-  };
+  //  fetchMessage = async () => {
+  //   try {
+  //     const response = await instance.get("http://localhost:8000/messages");
+  //     this.Message = response.data;
+  //   } catch (error) {
+  //     console.error("fetchMessage -> response", error);
+  //   }
+  // };
 
-  addChannel = (data) => {
-    let newChannel = data;
+  addChannel = (user) => {
+    let newChannel = user;
     newChannel.id = this.Channel.length + 1;
     this.Channel.push(newChannel);
   };
-  addMessage = (data) => {
-    let newMessage = data;
-    newMessage.id = this.Message.length + 1;
-    this.Message.push(newMessage);
-  };
+  //  addMessage = (data) => {
+  //   let newMessage = data;
+  //   newMessage.id = this.Message.length + 1;
+  //   this.Message.push(newMessage);
+  // };
 
-  addUser = (data) => {
-    let newUser = data;
-    newUser.id = this.User.length + 1;
-    this.User.push(newUser);
-  };
+  //  addUser = (data) => {
+  //   let newUser = data;
+  //   newUser.id = this.User.length + 1;
+  //   this.User.push(newUser);
+  // };
 
   removeChannel = (channelId) => {
     this.Channel = this.Channel.filter((channel) => channel.id !== channelId);
   };
 
-  removeMessage = (messageId) => {
-    this.Message = this.Message.filter((message) => message.id !== messageId);
-  };
+  // removeMessage = (messageId) => {
+  //   this.Message = this.Message.filter((message) => message.id !== messageId);
+  // };
 
-  removeUser = (userId) => {
-    this.User = this.User.filter((user) => user.id !== userId);
-  };
+  // removeUser = (userId) => {
+  //   this.User = this.User.filter((user) => user.id !== userId);
+  // };
+
   constructor() {
     makeObservable(this, {
       Channel: observable,
-      User: observable,
-      Message: observable,
+      // User: observable,
+      // Message: observable,
 
       fetchChannel: action,
-      fetchUser: action,
-      fetchMessage: action,
+      // fetchUser: action,
+      // fetchMessage: action,
 
       addChannel: action,
-      addUser: action,
-      addMessage: action,
+      // addUser: action,
+      // addMessage: action,
 
       removeChannel: action,
-      removeUser: action,
-      removeMessage: action,
+      // removeUser: action,
+      // removeMessage: action,
     });
   }
 }
@@ -78,6 +79,6 @@ class PegoStore {
 const pegStore = new PegoStore();
 
 pegStore.fetchChannel();
-pegStore.fetchMessage();
+// pegStore.fetchMessage();
 
 export default pegStore;

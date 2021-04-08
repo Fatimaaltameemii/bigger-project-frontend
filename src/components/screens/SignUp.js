@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, ImageBackground, StyleSheet } from "react-native";
+import { ImageBackground, StyleSheet } from "react-native";
 import signupPic from "../../../assets/signuppic.jpg";
 import styled from "styled-components/native";
 import StyledButton from "../StyledButton";
 import authStore from "../Stores/AuthStore";
+import { observer } from "mobx-react";
+
 const SignUp = ({ navigation }) => {
   const [user, setUser] = useState({
     username: "",
@@ -19,10 +21,17 @@ const SignUp = ({ navigation }) => {
       <Padd></Padd>
       <StyledText> Enter your User Name: </StyledText>
       <Padd2></Padd2>
-      <StyledTextInput placeholder="ex: taiba" />
+      <StyledTextInput
+        onChangeText={(value) => setUser({ ...user, username: value })}
+        placeholder="ex: taiba"
+      />
       <StyledText> Enter your PassWord: </StyledText>
       <Padd2></Padd2>
-      <StyledTextInput placeholder="ex: 123456" />
+      <StyledTextInput
+        onChangeText={(password) => setUser({ ...user, password })}
+        secureTextEntry={true}
+        placeholder="ex: 123456"
+      />
       <StyledButton
         onPress={handleSubmit} // هني لازم نضيف اليوزر والباس للداتا بيز
         title="First Pego!!"
@@ -32,7 +41,7 @@ const SignUp = ({ navigation }) => {
     </ImageBackground>
   );
 };
-export default SignUp;
+export default observer(SignUp);
 
 const Padd = styled.Text`
   padding: 40px;
